@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.martini.sparrow.mapper.UserBookFinishTimeMapper">
+    <select id="findByUserId" resultType="UserBookFinishTime">
+        select *
+        from t_user_book_finish_time where user_id = #{uid};
+    </select>
+    <insert id="insertOne">
+        insert into t_user_book_finish_time (book_id, user_id, finish_time)
+        values (#{bid}, #{uid}, #{now});
+    </insert>
+</mapper>

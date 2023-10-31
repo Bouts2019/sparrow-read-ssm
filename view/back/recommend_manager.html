@@ -1,0 +1,739 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>图表 - bootstrap中文后台管理系统模板</title>
+  <link rel="icon" href="favicon.ico" type="image/ico">
+
+
+  <meta name="author" content="yinqi">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body data-logobg="color_8" data-sidebarbg="color_8">
+<div class="layout-web">
+  <div class="layout-container">
+    <!--左侧导航-->
+    <aside class="layout-sidebar">
+
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="index.html"><img src="images/logo-sidebar.png" title="" alt="" /></a>
+      </div>
+      <div class="layout-sidebar-scroll">
+
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="index.html"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>系统监控</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="visit_statistics.html">网站访问统计</a> </li>
+                <li> <a href="reference_statistics.html">网站Reference统计</a> </li>
+                <li> <a href="druid_statistics.html">druid监控</a> </li>
+                <li> <a href="server_statistics.html">服务器信息</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 数据管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="data_user.html">用户数据</a> </li>
+                <li> <a href="data_article.html">文章数据</a> </li>
+                <li> <a href="data_book.html">图书数据</a> </li>
+                <li> <a href="data_other.html">其他数据</a> </li>
+                <li> <a href="data_user_map.html">阅读量动态数据</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 热搜推荐 </a>
+              <ul class="nav nav-subnav">
+                <li> <a href="hot-search.html">热搜管理</a> </li>
+                <li> <a href="recommend_manager.html">推荐管理</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="copyright">Copyright &copy; 2019.  All rights <a href="http://www.bootstrapmb.com/">reserved</a>. </p>
+        </div>
+      </div>
+
+    </aside>
+    <!--End 左侧导航-->
+
+    <!--头部信息-->
+    <header class="layout-header">
+
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+
+          <div class="topbar-left">
+            <div class="aside-toggler">
+              <span class="toggler-bar"></span>
+              <span class="toggler-bar"></span>
+              <span class="toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> JS 插件 - 图表 </span>
+          </div>
+
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="管理员"/>
+                <span>管理员 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a></li>
+                <li><a href="pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a></li>
+                <li><a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li><a href="pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a></li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+            <li class="dropdown dropdown-skin">
+              <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+              <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>LOGO</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>头部</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>侧边栏</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+                </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+          </ul>
+
+        </div>
+      </nav>
+
+    </header>
+    <!--End 头部信息-->
+
+    <!--页面主要内容-->
+    <main class="layout-content">
+
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card" style="height: 0;">
+<!--              <div class="card-header"><h3>推荐管理</h3></div>-->
+              <div class="card-body">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                      <h3>活动推荐</h3>
+                      <div class="toolbar-btn-action">
+                        <a class="btn btn-primary m-r-5" href="#!" onclick="showAddNewActivityPanel()"><i class="mdi mdi-plus"></i> 新增</a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th>图片</th>
+                            <th>活动地址</th>
+                            <th>操作</th>
+                          </tr>
+                          </thead>
+                          <tbody id="bannerItemsTbody">
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                      <h3>文章推荐</h3>
+                      <div class="toolbar-btn-action">
+                        <a class="btn btn-primary m-r-5" href="#!" onclick="showAddNewHotArticlePanel()"><i class="mdi mdi-plus"></i> 新增</a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th>文章id</th>
+                            <th>推荐标题</th>
+                            <th>操作</th>
+                          </tr>
+                          </thead>
+                          <tbody id="hotArticleTBody">
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                      <h3>作者推荐</h3>
+                      <div class="toolbar-btn-action">
+                        <a class="btn btn-primary m-r-5" href="#!" onclick="showAddNewRecommendAuthorPanel()"><i class="mdi mdi-plus"></i> 新增</a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th>作者id</th>
+                            <th>作者头像</th>
+                            <th>作者昵称</th>
+                            <th>作者简介</th>
+                            <th>操作</th>
+                          </tr>
+                          </thead>
+                          <tbody id="recommendAuthorTBody">
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="js/Chart.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript">
+  let baseUrl = 'http://localhost:8080/sparrow'
+  let banners = []
+  let bannerItemsTbody = $('#bannerItemsTbody')
+  // activity -> banner
+  function refreshActivities() {
+    $('#bannerItemsTbody').empty()
+    $.ajax({
+      type: 'get',
+      url: baseUrl + '/banner/all',
+      success(e) {
+        banners = e.data
+        let index = 0
+        banners.forEach(banner => {
+          let tem = `
+          <tr>
+            <td><a href="javascript:showImage(${index})">查看内容</a></td>
+            <td>${banner.linkSrc}</td>
+            <td>
+              <div class="btn-group">
+                <a class="btn btn-xs btn-default btn-danger" href="#!" title="删除" data-toggle="tooltip" onclick="deleteBanner(${index++})"><i class="mdi mdi-window-close"></i></a>
+              </div>
+            </td>
+          </tr>
+        `
+          $('#bannerItemsTbody').append($(tem))
+        })
+      }
+    })
+  }
+  refreshActivities()
+  function showImage(index) {
+    console.log(index)
+    console.log(banners[index].imgSrc)
+    layer.open({
+      type: 1,
+      offset: ['100px', '100px'],
+      content: `
+        <img src="${banners[index].imgSrc}"/>
+      `
+    })
+  }
+  function showAddNewActivityPanel() {
+    layer.open({
+      type: 1,
+      area: ['500px', '300px'],
+      content: $('#add-new-activity')
+    })
+  }
+  function addNewActivity() {
+    let banner = {}
+    banner.imgSrc = $('#image-callback').attr('src')
+    banner.linkSrc = $('#activity-link-src').val()
+    if (banner['imgSrc'] === '' || banner['imgSrc'] === null ||
+      banner['linkSrc'] === '' || banner['linkSrc'] === null) {
+      layer.alert('不能为空')
+      return
+    }
+    $.ajax({
+      type: 'post',
+      url: baseUrl + '/banner/one',
+      contentType: 'application/json',
+      data: JSON.stringify(banner),
+      success(e) {
+        layer.alert('添加成功', function (e) {
+          refreshActivities()
+          layer.closeAll()
+        })
+      },
+      error(err) {
+        console.log(err)
+      }
+    })
+  }
+  function uploadActivityImage() {
+    let formData = new FormData();
+    formData.append('image', $('#activity-img-src')[0].files[0])
+    $.ajax({
+      url: baseUrl + '/banner/upload-image',
+      type: 'post',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success(e) {
+        $('#image-callback').attr('src', e.data)
+      }
+    })
+  }
+  function deleteBanner(index) {
+    layer.confirm('确定删除这个活动吗', function () {
+      $.ajax({
+        url: baseUrl + '/banner/' + index,
+        type: 'delete',
+        success(e) {
+          layer.alert('删除成功', function () {
+            refreshActivities()
+            layer.closeAll()
+          })
+        },
+        error(err) {
+          console.log(err)
+          layer.alert('删除失败')
+        }
+      })
+    })
+  }
+
+  // 推荐文章
+  let hotArticleTBody = $('#hotArticleTBody')
+  let hotArticles = []
+  function refreshHotArticle() {
+    hotArticleTBody.empty()
+    $.ajax({
+      type: 'get',
+      url: baseUrl + '/hot-article/findAll',
+      success(res) {
+        hotArticles = res.data
+        let maxLength = hotArticles.length
+        let index = 0
+        hotArticles.forEach(hotArticles => {
+          let tem = `
+          <tr>
+            <td>${hotArticles.id}</td>
+            <td>${hotArticles.title}</td>
+            <td>
+              <div class="btn-group">
+                <a ${index === 0 ? 'disabled' : ''} class="btn btn-xs btn-warning" href="#!" data-toggle="tooltip" onclick="upHotArticle(${index})">↑</a>
+                <a ${index === maxLength - 1 ? 'disabled' : ''} class="btn btn-xs btn-warning" href="#!" data-toggle="tooltip" onclick="downHotArticle(${index})">↓</a>
+                <a class="btn btn-xs btn-danger" href="#!" data-toggle="tooltip" onclick="deleteHotArticle(${index})">×</a>
+              </div>
+            </td>
+          </tr>
+          `
+          index++
+          $('#hotArticleTBody').append($(tem))
+        })
+      }
+    })
+  }
+  refreshHotArticle()
+  function showAddNewHotArticlePanel() {
+    layer.open({
+      type: 1,
+      content: $('#add-hot-article'),
+      area: ['400px', '300px']
+    })
+  }
+  let newHotArticle = {}
+  function getHotArticleTitle() {
+    let id = parseInt($('#new-hot-article-id').val())
+    $.ajax({
+      url: baseUrl + '/article/' + id,
+      type: 'get',
+      success(e) {
+        if (e.data !== null) {
+          newHotArticle = e.data
+          $('#new-hot-article-title').text('标题：' + newHotArticle.title)
+        } else {
+          $('#new-hot-article-title').text('[error]未找到')
+        }
+      }
+    })
+  }
+  function addNewHotArticle() {
+    if (newHotArticle === null) {
+      layer.alert('没有找到文章，请输入正确的id')
+      return
+    }
+    $.ajax({
+      type: 'post',
+      url: baseUrl + '/hot-article/one',
+      contentType: 'application/json',
+      data: JSON.stringify(newHotArticle),
+      success(e) {
+        layer.alert('添加成功', function () {
+          refreshHotArticle()
+          layer.closeAll()
+        })
+      },
+      error(err) {
+        console.log(err)
+        layer.alert('添加失败', function () {
+          layer.closeAll()
+        })
+      }
+    })
+  }
+  function upHotArticle(index) {
+    layer.confirm('确定上移？', function () {
+      $.ajax({
+        type: 'put',
+        url: baseUrl + '/hot-article/up/' + index,
+        success(e) {
+          layer.alert('上移成功', function () {
+            refreshHotArticle()
+            layer.closeAll()
+          })
+        },
+        error(err) {
+          console.log(err)
+          layer.alert('上移失败', function () {
+            layer.closeAll()
+          })
+        }
+      })
+    })
+  }
+  function downHotArticle(index) {
+    layer.confirm('确定下移？', function () {
+      $.ajax({
+        type: 'put',
+        url: baseUrl + '/hot-article/down/' + index,
+        success(e) {
+          layer.alert('下移成功', function () {
+            refreshHotArticle()
+            layer.closeAll()
+          })
+        },
+        error(err) {
+          console.log(err)
+          layer.alert('下移失败', function () {
+            layer.closeAll()
+          })
+        }
+      })
+    })
+  }
+  function deleteHotArticle(index) {
+    layer.confirm('确定删除么', function () {
+      $.ajax({
+        type: 'delete',
+        url: baseUrl + '/hot-article/' + index,
+        success(e) {
+          layer.alert('删除成功', function () {
+            refreshHotArticle()
+            layer.closeAll()
+          })
+        },
+        error(err) {
+          console.log(err)
+          layer.alert('添加失败', function () {
+            layer.closeAll()
+          })
+        }
+      })
+    })
+  }
+  // 推荐作者管理
+  let recommendAuthors = []
+  function refreshRecommendAuthor() {
+    $.ajax({
+      url: baseUrl + '/recommend-author/all',
+      type: 'get',
+      success(res) {
+        $('#recommendAuthorTBody').empty()
+        recommendAuthors = res.data
+        let index = 0
+        recommendAuthors.forEach(author => {
+          let tem = `
+          <tr>
+            <td>${author.id}</a></td>
+            <td><img src="${author.avatar}" alt="" width="48px" height="48px"></td>
+            <td>${author.nickname}</td>
+            <td>${author.description}</td>
+            <td>
+              <div class="btn-group">
+                <a class="btn btn-xs btn-default btn-danger" href="#!" title="删除" data-toggle="tooltip" onclick="deleteRecommendAuthor(${index++})"><i class="mdi mdi-window-close"></i></a>
+              </div>
+            </td>
+          </tr>
+        `
+          $('#recommendAuthorTBody').append($(tem))
+        })
+      }
+    })
+  }
+  refreshRecommendAuthor()
+  function deleteRecommendAuthor(index) {
+    layer.confirm('确定删除吗？', function () {
+      $.ajax({
+        type: 'delete',
+        url: baseUrl + '/recommend-author/one',
+        contentType: 'application/json',
+        data: JSON.stringify(recommendAuthors[index]),
+        success(e) {
+          layer.alert('删除成功')
+          refreshRecommendAuthor()
+        },
+        error(e) {
+          layer.alert('删除异常')
+        }
+      })
+    })
+  }
+  function showAddNewRecommendAuthorPanel() {
+    layer.open({
+      type: 1,
+      content: $('#add-recommend-author-panel'),
+      area: ['500px', '300px']
+    })
+  }
+  let newRecommendUser = {}
+  function blurGetUserById() {
+    let id = parseInt($('#new-recommend-author-id').val())
+    if (id <= 0) {
+      $('#new-recommend-author-nickname').text('请输入正确的id')
+    } else {
+      $('#new-recommend-author-nickname').text('搜索中...')
+      $.ajax({
+        url: baseUrl + '/user/' + id,
+        type: 'get',
+        success(res) {
+          newRecommendUser = res.data
+          $('#new-recommend-author-nickname').text('搜索到：' + newRecommendUser.nickname)
+        },
+        error(err) {
+          $('#new-recommend-author-nickname').text('产生错误')
+        }
+      })
+    }
+  }
+  function addNewRecommendAuthorBtn() {
+    layer.confirm('确定增加吗？', function () {
+      let obj = {}
+      obj.avatar = newRecommendUser.avatar
+      obj.nickname = newRecommendUser.nickname
+      obj.id = newRecommendUser.uid
+      obj.description = newRecommendUser.description
+      $.ajax({
+        url: baseUrl + '/recommend-author/one',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify(obj),
+        success(res) {
+          layer.alert('增加成功')
+          newRecommendUser = {}
+          refreshRecommendAuthor()
+        },
+        error(err) {
+          layer.alert('增加异常')
+        }
+      })
+    })
+  }
+</script>
+</body>
+<div id="add-recommend-author-panel" style="display: none;">
+  <form class="form-horizontal" action="" method="post" onsubmit="return false;" style="padding: 30px;" autocomplete="off">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="activity-link-src">用户id</label>
+      <div class="col-md-7">
+        <input class="form-control" type="number" id="new-recommend-author-id" name="example-hf-email" placeholder="type" onblur="blurGetUserById()">
+        <p style="margin-left: 10px; margin-top: 10px; color: #999;" id="new-recommend-author-nickname">编辑框失去焦点自动获取标题</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-9 col-md-offset-3">
+        <button class="btn btn-primary" type="submit" id="add-new-recommend-author-btn" onclick="addNewRecommendAuthorBtn()">增加</button>
+        <button class="btn btn-info" type="submit" id="cancel-btn3" onclick="layer.closeAll()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="add-hot-article" style="display: none;">
+  <form class="form-horizontal" action="" method="post" onsubmit="return false;" style="padding: 30px;" autocomplete="off">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="activity-link-src">文章ID</label>
+      <div class="col-md-7">
+        <input class="form-control" type="number" id="new-hot-article-id" name="example-hf-email" placeholder="type" onblur="getHotArticleTitle()">
+        <p style="margin-left: 10px; margin-top: 10px; color: #999;" id="new-hot-article-title">编辑框失去焦点自动获取标题</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-9 col-md-offset-3">
+        <button class="btn btn-primary" type="submit" id="add-new-hot-article" onclick="addNewHotArticle()">增加</button>
+        <button class="btn btn-info" type="submit" id="cancel-btn2" onclick="layer.closeAll()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="add-new-activity" style="display: none;">
+  <form class="form-horizontal" action="" method="post" onsubmit="return false;" style="padding: 30px;">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="activity-img-src">活动图</label>
+      <div class="col-md-7">
+        <img src="" alt="尚未选择图片" id="image-callback">
+        <input type="file" id="activity-img-src" name="example-hf-email" placeholder="type" onchange="uploadActivityImage()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="activity-link-src">活动地址</label>
+      <div class="col-md-7">
+        <input class="form-control" id="activity-link-src" name="example-hf-email" placeholder="type">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-9 col-md-offset-3">
+        <button class="btn btn-primary" type="submit" id="submit-btn" onclick="addNewActivity()">增加</button>
+        <button class="btn btn-info" type="submit" id="cancel-btn" onclick="layer.closeAll()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+</html>

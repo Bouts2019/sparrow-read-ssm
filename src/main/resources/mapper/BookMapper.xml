@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.martini.sparrow.mapper.BookMapper">
+    <insert id="addOne" parameterType="Book" useGeneratedKeys="true" keyProperty="id">
+        insert into t_book (id, isbn, img_url, title, origin_title, subtitle, origin_subtitle, author_id, type_id,
+                            express_id, express_date, stars1, stars2, stars3, stars4, stars5, description)
+        values (#{id}, #{isbn}, #{imgUrl}, #{title}, #{originTitle}, #{subtitle}, #{originSubtitle}, #{authorId},
+                #{typeId}, #{expressId}, #{expressDate}, #{stars1}, #{stars2}, #{stars3}, #{stars4}, #{stars5}, #{description});
+    </insert>
+    <select id="findAll" resultType="Book">
+        select *
+        from t_book
+    </select>
+    <select id="findById" resultType="Book">
+        select *
+        from t_book where id = #{id}
+    </select>
+    <select id="count" resultType="int" parameterType="int">
+        select count(id)
+        from t_book;
+    </select>
+    <select id="findLimit" resultType="Book">
+        select * from t_book limit #{startIndex}, #{size}
+    </select>
+    <update id="updateById" parameterType="Book">
+        update
+            t_book
+        set
+            isbn = #{isbn},
+            img_url = #{imgUrl},
+            title = #{title},
+            author_id = #{authorId},
+            type_id = #{typeId},
+            express_id = #{expressId},
+            express_date = #{expressDate},
+            description = #{description}
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="long">
+        delete from t_book where id = #{id}
+    </delete>
+    <delete id="deleteByIdIn">
+        delete from
+                    t_book
+        where id
+        in
+        <foreach collection="list" index="index" item="id" separator="," close=")" open="(">
+            #{id}
+        </foreach>
+
+    </delete>
+    <select id="findByTitleLike" resultType="Book">
+        select *
+        from t_book where title like concat('%', #{title}, '%');
+    </select>
+</mapper>

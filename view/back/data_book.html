@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>文档列表 - bootstrap中文后台管理系统模板</title>
+  <link rel="icon" href="favicon.ico" type="image/ico">
+
+
+  <meta name="author" content="yinqi">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+    }
+
+    .user-male {
+      color: blue;
+    }
+
+    .user-female {
+      color: pink;
+    }
+  </style>
+</head>
+
+<body data-logobg="color_8" data-sidebarbg="color_8">
+<div class="layout-web">
+  <div class="layout-container">
+    <!--左侧导航-->
+    <aside class="layout-sidebar">
+
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="index.html"><img src="images/logo-sidebar.png" title="" alt="" /></a>
+      </div>
+      <div class="layout-sidebar-scroll">
+
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="index.html"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>系统监控</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="visit_statistics.html">网站访问统计</a> </li>
+                <li> <a href="reference_statistics.html">网站Reference统计</a> </li>
+                <li> <a href="druid_statistics.html">druid监控</a> </li>
+                <li> <a href="server_statistics.html">服务器信息</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 数据管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="data_user.html">用户数据</a> </li>
+                <li> <a href="data_article.html">文章数据</a> </li>
+                <li> <a href="data_book.html">图书数据</a> </li>
+                <li> <a href="data_other.html">其他数据</a> </li>
+                <li> <a href="data_user_map.html">阅读量动态数据</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 热搜推荐 </a>
+              <ul class="nav nav-subnav">
+                <li> <a href="hot-search.html">热搜管理</a> </li>
+                <li> <a href="recommend_manager.html">推荐管理</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="copyright">Copyright &copy; 2019.  All rights <a href="http://www.bootstrapmb.com/">reserved</a>. </p>
+        </div>
+      </div>
+
+    </aside>
+    <!--End 左侧导航-->
+
+    <!--头部信息-->
+    <header class="layout-header">
+
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+
+          <div class="topbar-left">
+            <div class="aside-toggler">
+              <span class="toggler-bar"></span>
+              <span class="toggler-bar"></span>
+              <span class="toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 用户管理 </span>
+          </div>
+
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="管理员"/>
+                <span>管理员 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a></li>
+                <li><a href="pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a></li>
+                <li><a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li><a href="pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a></li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+            <li class="dropdown dropdown-skin">
+              <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+              <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>LOGO</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>头部</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+                </li>
+                <li class="drop-title"><p>侧边栏</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+                </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+          </ul>
+
+        </div>
+      </nav>
+
+    </header>
+    <!--End 头部信息-->
+
+    <!--页面主要内容-->
+    <main class="layout-content">
+
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-toolbar clearfix">
+                <form class="pull-right search-bar" method="get" action="#!" role="form">
+                  <div class="input-group">
+                    <div class="input-group-btn">
+                      <input type="hidden" name="search_field" id="search-field" value="title">
+                      <button class="btn btn-default dropdown-toggle" id="search-btn" data-toggle="dropdown"
+                              type="button" aria-haspopup="true" aria-expanded="false">
+                        标题 <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="javascript:void(0)" data-field="title">标题</a></li>
+                        <li><a tabindex="-1" href="javascript:void(0)" data-field="cat_name">栏目</a></li>
+                      </ul>
+                    </div>
+                    <input type="text" class="form-control" value="" name="keyword" placeholder="请输入名称">
+                  </div>
+                </form>
+                <div class="toolbar-btn-action">
+                  <a class="btn btn-primary m-r-5" href="javascript:addBook()"><i class="mdi mdi-plus"></i> 新增</a>
+                  <a class="btn btn-danger" href="javascript:deleteMultiBooks()"><i class="mdi mdi-window-close"></i> 删除</a>
+                </div>
+              </div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>
+                        <label class="checkbox checkbox-primary">
+                          <input type="checkbox" id="check-all"><span></span>
+                        </label>
+                      </th>
+                      <th>编号</th>
+                      <th>ISBN</th>
+                      <th>封面</th>
+                      <th>书名</th>
+                      <th>作者ID</th>
+                      <th>类别ID </th>
+                      <th>出版社ID</th>
+                      <th>出版日期</th>
+                      <th>描述</th>
+                      <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    <!--
+
+                       "id": 10,
+                          "isbn": "3655192740",
+                          "imgUrl": "https://iph.href.lu/150x200",
+                          "title": "Book 10",
+                          "originTitle": "",
+                          "subtitle": "",
+                          "originSubtitle": "",
+                          "authorId": 1,
+                          "typeId": 1,
+                          "expressId": 1,
+                          "expressDate": "2020-12-13",
+                          "stars1": 12,
+                          "stars2": 21,
+                          "stars3": 38,
+                          "stars4": 48,
+                          "stars5": 53,
+                          "description": "ke91a3i8unpaj7ssscbcowiyc9guif5nl3w4qvcrglzoq30bwlrw78ewk7kd2esczyj6jwcdankiz94yotwwpaezvgauyr3h460c2q8g39nk0e2eeoems6vpk3tsulc6p1d5ba8an2capc3yif5kuz97pefj9e4jpfobibzg36fbd211h59rviabblujntduzjhrbt5s"
+
+                    -->
+                    </tbody>
+                  </table>
+                </div>
+                <ul class="pagination">
+                  <li id="previous-page-btn"><a href="javascript:previousPage()">«</a></li>
+                  <li id="next-page-btn"><a href="javascript:nextPage()">»</a></li>
+                  &nbsp;&nbsp;&nbsp;&nbsp;每页显示：
+                  <!-- Single button -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span id="limit-page">10</span><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li onclick="changeLimit(5)"><a href="#">5</a></li>
+                      <li onclick="changeLimit(10)"><a href="#">10</a></li>
+                      <li onclick="changeLimit(15)"><a href="#">15</a></li>
+                      <li onclick="changeLimit(20)"><a href="#">20</a></li>
+                    </ul>
+                  </div>
+                  条数据
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/api/date-formatter.js"></script>
+<script type="text/javascript">
+  let page = 1
+  let limit = 10
+  let total = 0
+  let baseUrl = 'http://localhost:8080/sparrow'
+  let maxPage = 0
+  let books = []
+  let isUpdate = true
+  function updatePagination() {
+    $.ajax({
+      type: 'get',
+      url: baseUrl + '/book/count',
+      success(e) {
+        total = e.data
+        loadPaginationData()
+      }
+    })
+  }
+
+
+  function goToPage(tar) {
+    page = tar
+    loadData(page, limit)
+    loadPaginationData()
+  }
+
+  function previousPage() {
+    if (page !== 1) {
+      goToPage(--page)
+    }
+  }
+  function nextPage() {
+    if (page !== maxPage) {
+      goToPage(++page)
+    }
+  }
+
+
+  function loadData(page, limit) {
+    $('#tbody').empty()
+    $.ajax({
+      type: 'get',
+      url: baseUrl + '/book/limit',
+      data: {
+        limit,
+        page
+      },
+      success(e) {
+        books = e.data
+        let index = 0
+        e.data.forEach(book => {
+          let tem = `
+                      <tr>
+                        <td>
+                          <label class="checkbox checkbox-primary">
+                            <input type="checkbox" name="ids" value="${book.id}"><span></span>
+                          </label>
+                        </td>
+                        <td>${book.id}</td>
+                        <td>${book.isbn}</td>
+                        <td><img style="width: 150px; height: 200px;" src="${book.imgUrl}" alt=""></td>
+                        <td>${book.title}</td>
+                        <td>${book.authorId}</td>
+                        <td>${book.typeId}</td>
+                        <td>${book.expressId}</td>
+                        <td>${book.expressDate}</td>
+                        <td><a href="javascript:showDescription(${index})">查看内容</a></td>
+                        <td>
+                          <div class="btn-group">
+                            <a  href="javascript:updateBook(${index++})" class="btn btn-xs btn-primary" title="编辑" data-toggle="tooltip">编辑</a>
+                            <a  class="btn btn-xs btn-danger" href="javascript:deleteBook(${book.id})" title="删除" data-toggle="tooltip">删除</a>
+                          </div>
+                        </td>
+                      </tr>
+    `
+          $('#tbody').append($(tem))
+        })
+      }
+    })
+  }
+
+  let updatingBook = {}
+
+  function updateBook(index) {
+    isUpdate = true
+    updatingBook = books[index]
+    $('#current-book-isbn').val(books[index].isbn)
+    $('#current-book-name').val(books[index].title)
+    $('#current-book-img').attr('src', books[index].imgUrl)
+    $('#current-book-type').val(books[index].typeId)
+    $('#current-book-author').val(books[index].authorId)
+    $('#current-book-express-id').val(books[index].expressId)
+    $('#current-book-desc').val(books[index].description)
+    let expressDate = Date.parse(books[index].expressDate)
+    $('#current-book-express-date').val(dateFormat('yyyy-MM-dd', new Date(expressDate)))
+    layer.open({
+      type: 1,
+      area: ['800px', '600px'],
+      content: $('#current-book')
+    })
+  }
+  function changeLimit(size) {
+    $('#limit-page').text(size)
+    limit = size
+    loadData(page, limit)
+    loadPaginationData()
+  }
+
+  function approveArticle(id) {
+    // todo 为什么这个可以 ？
+    $.ajax({
+      type: 'put',
+      url: baseUrl + '/article/approve/' + id,
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({
+        _method: 'put'
+      }),
+      success(e) {
+        layer.alert('文章过审成功')
+        loadData(page, limit)
+      }
+    })
+  }
+    function disapproveArticle(id) {
+      // todo 为什么这个可以 ？
+      $.ajax({
+        type: 'put',
+        url: baseUrl + '/article/disapprove/' + id,
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+          _method: 'put'
+        }),
+        success(e) {
+          layer.alert('文章驳回成功')
+          loadData(page, limit)
+        }
+      })
+    }
+  function showDescription(index) {
+    layer.open({
+      type: 1,
+      title: '文章内容',
+      area: ['800px', '600px'],
+      content:
+        `<div style="padding: 20px;" ">
+           ${books[index].description}
+         </div>`
+    })
+  }
+  function loadPaginationData() {
+    $('.go-to-page-class').remove()
+    maxPage = Math.ceil(total / limit)
+    if (page === 1) {
+      $('#previous-page-btn').addClass('disabled')
+    } else {
+      $('#previous-page-btn').removeClass('disabled')
+    }
+    if (maxPage === page) {
+      $('#next-page-btn').addClass('disabled')
+    } else {
+      $('#next-page-btn').removeClass('disabled')
+    }
+    for (let i = 1; i <= maxPage; i++) {
+      $('#next-page-btn').before($(
+        ` <li class="go-to-page-class ${i === page ? 'active' : ''}"><a href="javascript:goToPage(${i})">${i}</a></li> `
+    ))
+    }
+  }
+  $(function () {
+    loadData(page, limit)
+    $('.search-bar .dropdown-menu a').click(function () {
+      var field = $(this).data('field') || '';
+      $('#search-field').val(field);
+      $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
+    });
+    updatePagination()
+
+
+  });
+
+</script>
+</body>
+<!--时间选择插件-->
+<link rel="stylesheet" href="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+<!--日期选择插件-->
+<link rel="stylesheet" href="js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+<!--时间选择插件-->
+<script src="js/bootstrap-datetimepicker/moment.min.js"></script>
+<script src="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-datetimepicker/locale/zh-cn.js"></script>
+<!--日期选择插件-->
+<script src="js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<div id="current-book" style="display: none;">
+  <form class="form-horizontal" action="" method="post" onsubmit="return false;" style="padding: 30px;">
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-name">书名</label>
+      <div class="col-md-7">
+        <input class="form-control" type="email" id="current-book-name" name="example-hf-email" placeholder="书名" onchange="updatingBook.title = this.value">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-isbn">ISBN</label>
+      <div class="col-md-7">
+        <input class="form-control" id="current-book-isbn" name="example-hf-email" placeholder="ISBN" onchange="updatingBook.isbn = this.value">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">封面</label>
+      <div class="col-md-7">
+        <img id="current-book-img" src="" alt="">
+        <input type="file" id="upload-cover-page-btn" name="example-file-input">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" >类别id</label>
+      <div class="col-md-7">
+        <input class="form-control" type="number" id="current-book-type" name="example-hf-email" placeholder="类别编号" onchange="updatingBook.typeId = parseInt(this.value)">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-author">作者id</label>
+      <div class="col-md-7">
+        <input type="number" class="form-control" id="current-book-author" name="example-hf-email" placeholder="作者id" onchange="updatingBook.authorId = parseInt(this.value)">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-express-id">出版社id</label>
+      <div class="col-md-7">
+        <input type="number" class="form-control" id="current-book-express-id" name="example-hf-email" placeholder="出版社id" onchange="updatingBook.expressId = parseInt(this.value)">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-express-date">发行日期</label>
+      <div class="col-md-7">
+        <input class="form-control js-datepicker m-b-10" type="text" id="current-book-express-date" name="current-book-express-date" placeholder="yyyy-mm-dd" value="" data-date-format="yyyy-mm-dd" onchange="updatingBook.expressDate = this.value"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="current-book-desc">描述</label>
+      <div class="col-md-7">
+        <textarea class="form-control" id="current-book-desc" name="example-hf-email" placeholder="书本描述" cols="20" rows="10" onchange="updatingBook.description = this.value"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-9 col-md-offset-3">
+        <button class="btn btn-primary" type="submit" id="submit-btn">提交修改</button>
+        <button class="btn btn-info" type="submit" id="cancel-btn">取消修改</button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+
+    function addBook() {
+      isUpdate = false
+      updatingBook = {}
+      $('#current-book-isbn').val(updatingBook.isbn)
+      $('#current-book-name').val(updatingBook.title)
+      $('#current-book-img').attr('src', '')
+      $('#current-book-type').val(updatingBook.typeId)
+      $('#current-book-author').val(updatingBook.authorId)
+      $('#current-book-desc').val(updatingBook.description)
+      $('#current-book-express-id').val(updatingBook.expressId)
+      let expressDate = Date.parse(updatingBook.expressDate)
+
+      $('#current-book-express-date').val(dateFormat('yyyy-MM-dd', new Date(expressDate)))
+      layer.open({
+        type: 1,
+        area: ['800px', '600px'],
+        content: $('#current-book')
+      })
+    }
+
+
+    function deleteMultiBooks() {
+      let ids = []
+      $.each($('input[name=ids]:checked'), (i, e) => {
+        ids.push(parseInt(e.value))
+      })
+      if (ids.length === 0) {
+        layer.alert('没有选择')
+        return
+      }
+      layer.confirm('确定删除这些吗？', function () {
+        $.ajax({
+          type: 'delete',
+          contentType: 'application/json',
+          url: baseUrl + '/book/ids',
+          data: JSON.stringify(ids),
+          success(e) {
+            layer.alert('删除成功')
+            updatePagination()
+            loadData(page, limit)
+          }
+        })
+      })
+    }
+
+    function deleteBook(id) {
+      layer.confirm('确定吗？', function (e) {
+        $.ajax({
+          type: 'delete',
+          contentType: 'application/json',
+          url: baseUrl + '/book/' + id,
+          success(e) {
+            layer.alert('删除成功', function () {
+              layer.closeAll()
+              updatePagination()
+              loadData(page, limit)
+            })
+          }
+        })
+      })
+    }
+
+    $('#cancel-btn').on('click', function () {
+      layer.closeAll()
+    })
+    $('#submit-btn').on('click', function (e) {
+      e.preventDefault()
+      let url = isUpdate ? '/book/' + updatingBook.id : '/book/one'
+      let type = isUpdate ? 'put' : 'post'
+      $.ajax({
+        type: type,
+        contentType: 'application/json',
+        url: baseUrl + url,
+        data: JSON.stringify(updatingBook),
+        success(e) {
+          layer.alert(isUpdate ? '修改成功' : '增加成功', function () {
+            layer.closeAll()
+          })
+          if (isUpdate) {
+            updatePagination()
+          }
+          loadData(page, limit)
+        }
+      })
+    })
+    $('#upload-cover-page-btn').on('change', function (e) {
+      let formData = new FormData();
+      formData.append('image', this.files[0])
+      $.ajax({
+        url: baseUrl + '/book/upload-cover',
+        type: 'post',
+        data: formData,
+        processData: false,
+        contentType: false
+      }).done(e => {
+        updatingBook.imgUrl = e.data
+        $('#current-book-img').attr('src', e.data)
+      })
+    })
+  </script>
+</div>
+</html>

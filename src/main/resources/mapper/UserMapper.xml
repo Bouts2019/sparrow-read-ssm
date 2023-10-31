@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.martini.sparrow.mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select *
+        from t_user
+    </select>
+    <select id="findByPhone" resultType="User">
+        select *
+        from t_user where phone = #{phone}
+    </select>
+    <select id="findByEmail" resultType="User">
+        select *
+        from t_user where email = #{email}
+    </select>
+    <select id="findById" parameterType="long" resultType="User">
+        select *
+        from t_user where uid = #{id}
+    </select>
+    <select id="findByNickname" resultType="User">
+        select *
+        from t_user where nickname = #{nickname};
+    </select>
+    <insert id="insertOne" parameterType="User">
+        insert into t_user (phone, password, nickname, avatar, reg_time, birthday, gender, description)
+        values (#{phone}, #{password}, #{nickname}, #{avatar}, #{regTime}, #{birthday}, #{gender}, #{description});
+    </insert>
+    <select id="count" parameterType="int" resultType="int">
+        select count(uid) from t_user;
+    </select>
+    <select id="findLimit" resultType="User">
+        select *
+        from t_user limit #{startIndex}, #{size};
+    </select>
+    <select id="getArticleCountById" resultType="int">
+        select count(id)
+        from t_article where user_id = #{id};
+    </select>
+    <select id="findUsersByIds" resultType="User">
+        select *
+        from t_user where uid in
+        <foreach collection="list" open="(" close=")" separator="," index="index" item="uid">
+            #{uid}
+        </foreach>
+    </select>
+    <update id="updateById" parameterType="User">
+        update
+            t_user
+        set
+            phone = #{phone},
+            password = #{password},
+            nickname = #{nickname},
+            avatar = #{avatar},
+            reg_time = #{regTime},
+            birthday = #{birthday},
+            gender = #{gender},
+            description = #{description},
+            email = #{email},
+            coin = 1000
+        where uid = #{uid}
+    </update>
+</mapper>

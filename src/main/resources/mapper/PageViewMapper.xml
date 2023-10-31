@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.martini.sparrow.mapper.PageViewMapper">
+    <select id="findByDateIn" resultType="PageView">
+        select *
+        from t_pv where date in 
+        <foreach collection="list" item="date" index="index" open="(" close=")" separator=",">
+            #{date}
+        </foreach>
+    </select>
+    <update id="add">
+        update t_pv
+        set pv = pv + #{number}
+        where date = #{date}
+    </update>
+    <select id="existsDate" resultType="int">
+        select count(id)
+        from t_pv where date = #{date};
+    </select>
+    <insert id="createDate">
+        insert into t_pv (date, pv)
+        values (#{date}, 0);
+    </insert>
+</mapper>
